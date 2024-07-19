@@ -181,6 +181,8 @@ function getPlayerById(playerId) {
     return players[playerId];
 }
 
+// this is for authentification
+
 function chatDOSCheck(playerId) {
     if (chatMessagesRecentNum[playerId] === undefined) chatMessagesRecentNum[playerId] = 0;
 
