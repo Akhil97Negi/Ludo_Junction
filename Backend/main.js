@@ -3,6 +3,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     gameJS = require('./import'),
     playerAuth = require('./playersAuth'),
+    // socketIo = require('socket.io'),
     validator = require('validator'),
     clone = require('clone'),
     jsonpatch = require('fast-json-patch'),
@@ -11,7 +12,7 @@ var express = require('express'),
 var app = require('express')()
     , server = require('http').createServer(app)
     , io = require('socket.io').listen(server, {path: config.baseUrl + 'socket.io'});
-
+//    ,io = socketIo(server, { path: config.baseUrl + 'socket.io' });
 app.start = app.listen = function () {
     return server.listen.apply(server, arguments)
 }
