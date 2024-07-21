@@ -1,15 +1,16 @@
 <html>
+
 <head>
     <script language="JavaScript">var baseUrl = "<%= baseUrl %>"</script>
     <script src="<%= baseUrl %>libs/jquery.min.js"></script>
     <script src="<%= baseUrl %>libs/socket.io.js"></script>
     <script type="text/javascript" src="<%= baseUrl %>lobby.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-            integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
-            crossorigin="anonymous"></script>
+        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+        crossorigin="anonymous"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="<%= baseUrl %>game.css"/>
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="<%= baseUrl %>game.css" />
     <title>ProLudo - Lobby</title>
     <style>
         body {
@@ -19,108 +20,130 @@
         }
     </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-        <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        Pro Ludo Club
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    <nav class="navbar navbar-expand-lg navbar-dark"
+        style="background-color: rgba(0, 0, 0, 0.5); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Ludo Junction
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#previousGamesModal" href="#">Previous Games</a>
-            </li>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#previousGamesModal" href="#"
+                        style="color: white;">Previous Games</a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">Notice</a>
-            </li>
-            <li class="nav-item">
+                <li class="nav-item">
 
-            </li>
-        </ul>
-        <span class="navbar-text"> <button class="btn btn-danger btn-block" id="logoutBtn"> Logout</button> </span>
-        <span class="navbar-text">  </span>
-        <span class="navbar-text">
-     [ Server Status : <span class="badge badge-success">Online</span> ]
-    </span>
-    </div>
-</nav>
-
-<div class="container">
-    <div class="row" style="padding:10px">
-
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card card-default">
-                <div class="card-header"><img src="assets/img/PlayersInLobby.png"><b>Players in lobby</b></div>
-                <div class="card-body">
-                    <div id="players"></div>
-                </div>
-            </div>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <button class="btn btn-danger btn-block" id="logoutBtn"> Logout</button>
+            </span>
+            <span class="navbar-text"> </span>
+            <span class="navbar-text">
+              [    Status : <span class="badge badge-success">Online</span>   ]
+            </span>
         </div>
+    </nav>
 
-        <div class="col-md-4 col-xs-12">
-            <div class="card card-default">
-                <div class="card-header"><img src="assets/img/ReadyPlayerIcon.png"> <b>Ready Players</b></div>
-                <div class="card-body">
-                    <div id="readyPlayers"></div>
-                </div>
-                <div class="card-footer">
-                    <div>
-                        <button class="btn btn-success" id="startGame">Start Game</button>
-                        <button class="btn btn-primary" id="readyBtn">Ready</button>
+
+    <div class="container" style="margin-top: 100px; ">
+        <div class="row" style="padding:10px">
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-default"
+                    style="background-color: rgba(0, 0, 0, 0.5); border: .1px solid rgba(255, 255, 255, 0.1); border:.1px solid white;">
+                    <div class="card-header"
+                        style="background-color: rgba(0, 0, 0, 0.5); border-bottom: .1px solid rgba(255, 255, 255, 0.1); ">
+                        <img src="assets/img/PlayersInLobby.png">
+                        <b style="color: #fff; ">Players in lobby</b>
+                    </div>
+                    <div class="card-body" style="background-color: rgba(0, 0, 0, 0.5);">
+                        <div id="players" style="color: white;"></div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-4 col-xs-12">
-            <div class="card card-default">
-                <div class="card-header"><img height="80" width="80" src="assets/img/dice.gif"> <b>Ongoing games</b></div>
-                <div id="ongoingGames" class="card-body">
-
-                </div>
-                <div class="card-footer">
-                    <h5>Click on a game to spectate.</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-
-    </div>
-</div>
 
 
-<div class="modal fade" id="previousGamesModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Previous Games</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="col-md-12 col-xs-12">
-                    <div class="card card-default">
-                        <div id="previousGames" class="card-body">
 
+            <div class="col-md-4 col-xs-12">
+                <div class="card card-default"
+                    style="background-color: rgba(0, 0, 0, 0.5); border: .1px solid rgba(255, 255, 255, 0.1); border:.1px solid white;">
+                    <div class="card-header"
+                        style="background-color: rgba(0, 0, 0, 0.5); border-bottom: .1px solid rgba(255, 255, 255, 0.1);">
+                        <img src="assets/img/ReadyPlayerIcon.png"> <b style="color: white;">Ready Players</b>
+                    </div>
+                    <div class="card-body">
+                        <div id="readyPlayers" style="color: white;"></div>
+                    </div>
+                    <div class="card-footer">
+                        <div>
+                            <button class="btn btn-success" id="startGame">Start Game</button>
+                            <button class="btn btn-primary" id="readyBtn">Ready</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            <div class="col-md-4 col-xs-12">
+                <div class="card card-default"
+                    style="background-color: rgba(0, 0, 0, 0.5); border: .1px solid rgba(255, 255, 255, 0.1); border:.1px solid white;">
+                    <div class="card-header"
+                        style="background-color: rgba(0, 0, 0, 0.5); border-bottom: .1px solid rgba(255, 255, 255, 0.1);">
+                        <img height="80" width="80" src="assets/img/dice.gif"> <b style="color: white;">Ongoing
+                            games</b>
+                    </div>
+                    <div id="ongoingGames" class="card-body"
+                        style="background-color: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    </div>
+
+
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Spectate mode</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="previousGamesModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Previous Games</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="card card-default">
+                            <div id="previousGames" class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 </body>
