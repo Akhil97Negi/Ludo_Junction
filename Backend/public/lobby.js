@@ -103,7 +103,7 @@ function updateLobby() {
                         rel: 'internal',
                         class: 'well',
                         text: string,
-                        style: 'padding: 2%; width: 100%; textAlign: left; ',
+                        style: 'padding: 2%; width: 100%; textAlign: left; background-color: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); color: white',
                         onclick: "window.location.href=$(this).attr('href')",
                     }).click(function () {
                         console.log("test");

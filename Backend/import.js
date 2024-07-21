@@ -132,7 +132,7 @@ module.exports = {
         let game = {};
         game.playerTurn = 0;
         game.turn = 0;
-        game.throwsLeft = 3;
+        game.throwsLeft = 1;
         game.waitingForMove = false;
         game.nextDice = dice();
         game.lastDice = 3;
@@ -374,7 +374,7 @@ function nextPlayer(game) {
 
         game.throwsLeft = 1;
 
-        if (notStartedChips + chipsFinished === 4) game.throwsLeft = 3;
+        if (notStartedChips + chipsFinished === 4) game.throwsLeft = 1;
 
     } else {
         nextPlayer(game);
