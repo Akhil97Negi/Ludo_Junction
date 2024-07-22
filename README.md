@@ -69,22 +69,13 @@ node main.js
 ![Screenshot (1021)](https://github.com/user-attachments/assets/9261d06b-5388-45f0-8926-2dee97ac8831)
 
 ## Credentials
-Provide user credentials for autheticated pages
-
-## APIs Used
-If your application relies on external APIs, document them and include any necessary links or references.
-
-## API Endpoints
-In case of Backend Applications provide a list of your API endpoints, methods, brief descriptions, and examples of request/response.
-GET /api/items - retrieve all items
-POST /api/items - create a new item
-
+you can register and then login
 
 ## Technology Stack
 List and provide a brief overview of the technologies used in the project.
 
 - Node.js
 - Express.js
-- MongoD![Screenshot (1019)](https://github.com/user-attachments/assets/3493838b-211c-4b27-8431-db34144371e4)
-B
-- Other libraries/modules
+- Mongodb
+- bootstrap
+- socket.io
