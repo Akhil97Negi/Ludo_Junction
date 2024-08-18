@@ -1,4 +1,4 @@
-# Legislative-Libraries
+# Ludo Junction
 
 ## Introduction
  This project is a real-time Ludo game that lets users play with others globally. Players can enjoy classic Ludo gameplay, chat with each other during the game, and spectators can watch ongoing matches, making it a dynamic and interactive experience for all.
